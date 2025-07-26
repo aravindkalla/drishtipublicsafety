@@ -1,0 +1,275 @@
+/* --- Root Variables for Colors and Fonts --- */
+:root {
+    --bg-dark: #f7f5f5;
+    --card-bg: #cfc8c8;
+    --text-light: #e0e0e0;
+    --accent-green: #69F0AE; /* A vibrant, modern green */
+    --accent-green-dark: #4CAF50; /* Darker green for hover/active */
+    --alert-red: #EF5350; /* A slightly softer red */
+    --border-color: #3a3a3a;
+    --input-bg: #3a3a3a;
+    --shadow-light: rgba(0, 0, 0, 0.2);
+    --shadow-deep: rgba(0, 0, 0, 0.4);
+    --font-primary: 'Poppins', sans-serif;
+}
+
+/* --- General Body Styles --- */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-primary);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Use min-height to allow content to expand */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* --- Header Styles --- */
+header {
+    background-color: var(--card-bg);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+h1 {
+    color: var(--accent-green);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0; /* Remove default margin */
+}
+
+h2 {
+    color: var(--accent-green);
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 1rem;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard {
+    display: grid; /* Use CSS Grid for better control */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 1.5rem; /* Spacing between columns */
+    padding: 1.5rem;
+    flex-grow: 1;
+    max-width: 1400px; /* Limit width on large screens */
+    margin: 0 auto; /* Center the dashboard */
+    width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+/* --- Dashboard Columns (Cards) --- */
+.dashboard-column {
+    background-color: var(--card-bg);
+    border-radius: 12px; /* Slightly more rounded corners */
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px var(--shadow-deep); /* Deeper shadow for cards */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Hide scrollbar for the column itself */
+}
+
+/* --- Live Alerts Container --- */
+#alerts-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable scrolling for alerts list */
+    padding-right: 5px; /* Space for scrollbar */
+    /* Custom Scrollbar for Webkit Browsers */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--accent-green) var(--card-bg); /* Firefox */
+}
+
+#alerts-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#alerts-container::-webkit-scrollbar-track {
+    background: var(--card-bg);
+    border-radius: 10px;
+}
+
+#alerts-container::-webkit-scrollbar-thumb {
+    background-color: var(--accent-green-dark);
+    border-radius: 10px;
+    border: 2px solid var(--card-bg);
+}
+
+/* --- Individual Alert Items --- */
+.alert-item {
+    background-color: #f5f0f0; /* Slightly different background for items */
+    border-left: 5px solid var(--alert-red); /* Thicker red border */
+    padding: 1rem;
+    margin-bottom: 0.8rem; /* More space between alerts */
+    border-radius: 6px; /* Slightly rounded corners */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+.alert-item:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.alert-item p {
+    margin: 0 0 0.5rem 0; /* Space below message */
+    font-size: 0.95rem;
+}
+
+.alert-item .timestamp {
+    font-size: 0.75em;
+    color: #aaaaaa; /* Lighter grey for timestamp */
+    display: block;
+    text-align: right; /* Align timestamp to the right */
+}
+
+/* --- AI Assistant Section --- */
+#ai-assistant {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow it to take available height */
+}
+
+#response-container {
+    background-color: var(--input-bg); /* Use input background color */
+    border-radius: 6px;
+    padding: 1rem;
+    flex-grow: 1;
+    overflow-y: auto; /* Enable scrolling for response */
+    margin-bottom: 1rem;
+    min-height: 100px; /* Ensure a minimum height */
+    max-height: 300px; /* Limit max height before scroll */
+    padding-right: 5px; /* Space for scrollbar */
+
+    /* Custom Scrollbar for Webkit Browsers */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--accent-green) var(--input-bg); /* Firefox */
+}
+
+#response-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#response-container::-webkit-scrollbar-track {
+    background: var(--input-bg);
+    border-radius: 10px;
+}
+
+#response-container::-webkit-scrollbar-thumb {
+    background-color: var(--accent-green-dark);
+    border-radius: 10px;
+    border: 2px solid var(--input-bg);
+}
+
+
+.ai-response {
+    margin: 0;
+    padding: 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.input-area {
+    display: flex;
+    gap: 0.75rem; /* More space between input and button */
+    padding-top: 0.5rem; /* Space above input area */
+}
+
+#query-input {
+    flex-grow: 1;
+    padding: 0.9rem 1.2rem; /* More padding for better feel */
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-light);
+    border-radius: 8px; /* More rounded corners */
+    font-size: 1rem;
+    outline: none; /* Remove default outline */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#query-input::placeholder {
+    color: #999;
+    opacity: 0.8;
+}
+
+#query-input:focus {
+    border-color: var(--accent-green); /* Green border on focus */
+    box-shadow: 0 0 0 2px rgba(105, 240, 174, 0.3); /* Subtle glow */
+}
+
+#submit-query {
+    padding: 0.9rem 1.8rem; /* More padding */
+    border: none;
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-green-dark)); /* Subtle gradient */
+    color: white;
+    cursor: pointer;
+    border-radius: 8px; /* More rounded corners */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+#submit-query:hover {
+    background: linear-gradient(45deg, var(--accent-green-dark), var(--accent-green)); /* Reverse gradient on hover */
+    transform: translateY(-1px); /* Slight lift */
+    box-shadow: 0 4px 8px var(--shadow-deep);
+}
+
+#submit-query:active {
+    transform: translateY(0); /* Press effect */
+    box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .dashboard-column {
+        padding: 1.2rem;
+    }
+
+    #query-input, #submit-query {
+        padding: 0.75rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .dashboard {
+        padding: 0.8rem;
+    }
+
+    .alert-item {
+        padding: 0.8rem;
+    }
+
+    #query-input {
+        font-size: 0.85rem;
+    }
+}

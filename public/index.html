@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Drishti - Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Project Drishti: Live Command Center</h1>
+    </header>
+
+    <main class="dashboard">
+        <div class="dashboard-column" id="alerts-column">
+            <h2>Live Alerts</h2>
+            <div id="alerts-container">
+                </div>
+        </div>
+
+        <div class="dashboard-column" id="ai-column">
+            <h2>Ask Drishti (AI Assistant)</h2>
+            <div id="ai-assistant">
+                <div id="response-container">
+                    <p class="ai-response">Awaiting your query...</p>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="query-input" placeholder="e.g., 'What is the status in Zone A?'">
+                    <button id="submit-query">Ask</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
